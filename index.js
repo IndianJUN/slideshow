@@ -54,5 +54,29 @@
       }
       addCurrentClass();
       setMainImage(images[currentNum]);
-  })
+  });
+
+  const prev = document.getElementById('prev');
+  prev.addEventListener('click',()=>{
+      removeCurrentClass();
+      currentNum--;
+      if(currentNum < 0){
+          currentNum = images.length -1;
+      }
+      addCurrentClass();
+      setMainImage(images[currentNum]);
+  });
+
+  function playSlideshow(){
+      next.click();
+      setTimeout(()=>{
+        next.click();
+        playSlideshow();
+      },1000);
+  }
+
+  const play = document.getElementById('play');
+  play.addEventListener('click',()=>{
+    playSlideshow();
+  });
 }
