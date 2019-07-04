@@ -5,8 +5,8 @@
     'img/01.jpg',
     'img/02.jpg',
     'img/03.jpg',
-  ];
 
+  ];
   let currentNum = 0;
 
   function setMainImage(image) {
@@ -46,37 +46,48 @@
   });
 
   const next = document.getElementById('next');
-  next.addEventListener('click',()=>{
-      removeCurrentClass();
-      currentNum++;
-      if(currentNum === images.length){
-          currentNum = 0;
-      }
-      addCurrentClass();
-      setMainImage(images[currentNum]);
+  next.addEventListener('click', () => {
+    removeCurrentClass();
+    currentNum++;
+    if (currentNum === images.length) {
+      currentNum = 0;
+    }
+    addCurrentClass();
+    setMainImage(images[currentNum]);
   });
 
   const prev = document.getElementById('prev');
-  prev.addEventListener('click',()=>{
-      removeCurrentClass();
-      currentNum--;
-      if(currentNum < 0){
-          currentNum = images.length -1;
-      }
-      addCurrentClass();
-      setMainImage(images[currentNum]);
+  prev.addEventListener('click', () => {
+    removeCurrentClass();
+    currentNum--;
+    if (currentNum < 0) {
+      currentNum = images.length - 1;
+    }
+    addCurrentClass();
+    setMainImage(images[currentNum]);
   });
 
-  function playSlideshow(){
+  let timeoutId;
+
+  function playSlideshow() {
+    timeoutId = setTimeout(() => {
       next.click();
-      setTimeout(()=>{
-        next.click();
-        playSlideshow();
-      },1000);
+      playSlideshow();
+    }, 1000);
   }
 
   const play = document.getElementById('play');
-  play.addEventListener('click',()=>{
+  const pause = document.getElementById('pause');
+
+  play.addEventListener('click', () => {
+    play.classList.add('hidden');
+    pause.classList.remove('hidden');
     playSlideshow();
+  });
+
+  pause.addEventListener('click', () => {
+    play.classList.remove('hidden');
+    pause.classList.add('hidden');
+    clearTimeout(timeoutId);
   });
 }
