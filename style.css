@@ -1,0 +1,47 @@
+.container{
+    width: 300px;
+    margin: 0 auto;
+
+}
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+main img{
+    widows: 300px;
+    height: 200px;
+    vertical-align: bottom;
+}
+main{
+    margin-bottom: 8px;
+
+
+}
+nav{
+    margin-bottom: 8px;
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+nav li{
+    width: 60px;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 4px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+nav li:hover{
+    background: #f8f8f8;
+}
+#play{
+    width: 140px;
+}
+.thumbnails img{
+    width: 56px;
+    vertical-align: bottom;
+}
